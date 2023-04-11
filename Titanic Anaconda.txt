@@ -1,0 +1,31 @@
+
+#Para comenzar hacemos los Import necesarios con los paquetes que utilizaremos en el Ejercicio.
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt 
+
+#Cargamos el conjunto de datos
+df = pd.read_csv("train.csv")
+
+#Podemos ver las primeras filas del conjunto de datos con la función head()
+df.head()
+
+#Obtenemos información sobre las columnas y los tipos de datos
+df.info()
+
+#Obtenemos información estadistica del conjunto de datos
+df.describe()
+
+#Visualizamos alguna caracteristicas del conjunto de datos
+df["Age"].hist(bins=20)
+plt.xlabel("Age")
+plt.ylabel("Count")
+plt.show()
+
+#También podemos crear un diagrama de barras para mostrar la cantidad de sobrevivientes
+survived_counts =df["Survived"].value_counts()
+plt.bar(survived_counts.index, survived_counts.values)
+plt.xticks([0, 1], ["Not survived", "Survived"])
+plt.ylabel("Count")
+plt.show()
+
